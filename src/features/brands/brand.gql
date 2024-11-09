@@ -1,0 +1,28 @@
+fragment CarBrandData on CarBrand {
+    id
+    name
+}
+
+query GetBrands {
+    carBrands {
+        ...CarBrandData
+    }
+}
+
+mutation CreateBrand($name: String!) {
+    createCarBrand(name: $name) {
+        id
+        name
+    }
+}
+
+mutation EditBrand($id: ID!, $name: String!) {
+    editCarBrand(data: { id: $id, name: $name }) {
+        id
+        name
+    }
+}
+
+mutation DeleteBrand($id: ID!) {
+    deleteCarBrand(id: $id)
+}

@@ -1,0 +1,43 @@
+fragment CarModificationData on CarModification {
+    id
+    name
+    horsePower
+    weight
+    model {
+        id
+        name
+        brand {
+            id
+            name
+        }
+    }
+    coupe
+}
+
+mutation CreateModification($modelId: ID!, $name: String!) {
+    createCarModification(modelId: $modelId, name: $name) {
+        ...CarModificationData
+    }
+}
+
+query GetAllCarModifications {
+    allCarModifications {
+        ...CarModificationData
+    }
+}
+
+query GetCarModifications($modelId: ID!) {
+    carModifications(modelId: $modelId) {
+        ...CarModificationData
+    }
+}
+
+mutation EditModification($data: CarModificationData!) {
+    editCarModification(data: $data) {
+        ...CarModificationData
+    }
+}
+
+mutation DeleteModification($id: ID!) {
+    deleteCarModification(id: $id)
+}

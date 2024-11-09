@@ -1,0 +1,30 @@
+fragment CarModelData on CarModel {
+    brand {
+        id
+        name
+    }
+    id
+    name
+}
+
+mutation CreateModel($brandId: ID!, $name: String!) {
+    createCarModel(brandId: $brandId, name: $name) {
+        ...CarModelData
+    }
+}
+
+query GetModels($brandId: ID!) {
+    carModels(brandId: $brandId) {
+        ...CarModelData
+    }
+}
+
+mutation EditModel($id: ID!, $name: String!) {
+    editCarModel(data: { id: $id, name: $name }) {
+        ...CarModelData
+    }
+}
+
+mutation DeleteModel($id: ID!) {
+    deleteCarModel(id: $id)
+}

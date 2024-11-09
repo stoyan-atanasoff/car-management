@@ -1,17 +1,11 @@
-import { GraphQLBackend } from '@lib/api/graphql'
-import TestCors from '@/app/TestCors'
+'use client';
 
-export default async function Home() {
-  const brand = await GraphQLBackend.GetBrands()
+import ModificationsTable from '@/features/modifications-table/ModificationsTable'
+import useToastStore from '@/features/toasts/toast.store'
 
+export default function Home() {
+  const toastStore = useToastStore();
   return (
-    <div className="">
-      <TestCors />
-      <div className="text-xs font-bold">
-        {brand.carBrands?.map((brand) => (
-          <div key={brand.id}>{brand.name}</div>
-        ))}
-      </div>
-    </div>
+    <ModificationsTable />
   )
 }

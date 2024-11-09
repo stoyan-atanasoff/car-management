@@ -1,0 +1,1 @@
+export type BaseOption = { id: number; name: string };

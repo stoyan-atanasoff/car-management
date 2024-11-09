@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.full-width-wrapper [data-radix-scroll-area-content] {
+    min-width: 100% !important;
+}
+
+.table-hover-column .highlighted-column {
+    background-color: #f0f0f0; /* Change this to your desired hover color */
+}
+.tabs-vertical {
+    flex-direction: column;
+}
+.tabs-vertical .rt-TabNavLink {
+    flex: 1;
+}
+.tabs-vertical .rt-BaseTabListTrigger {
+    justify-content: flex-start;
+}
